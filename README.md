@@ -21,6 +21,8 @@ Run the following commands in the terminal:
   ```
 
 # Project Notes
+* **API Documentation:** API docs available at http://0.0.0.0/docs. Server must be running first.
+
 * **Testing:** I used Postman to test these endpoints. I didn't write up test files since the README seemed to indicate that an engineer would run this against an automated test suite.
 
 * **Tech:** I used Python and FastAPI since they are familiar to me, having used them at my recent job. This is also set up to run with Docker per the requirements.
