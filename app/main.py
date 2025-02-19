@@ -44,5 +44,8 @@ def get_receipt_points(id: str):
             if total.is_integer():
                 points += 50
 
+            if total % 0.25 == 0:
+                points += 25
+
             return {"points": points}
     return {"error": "receipt not found"}
