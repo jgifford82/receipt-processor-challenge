@@ -29,6 +29,8 @@ Run the following commands in the terminal:
 
 * **Logic:** There is a lot of logic contained in the `/receipts/{id}/points` endpoint in `main.py`. It might be better to separate it out into smaller functions in a separate file for readability and maintainability. I'm keeping it here for now since it's a small app and the logic is only used in this endpoint.
 
+* **Error Handling:** I think error handling could be optimized. Since it wasn't part of the requirements, I kept it pretty basic. 
+
 * **Server Reload** The "--reload" flag in the CMD list of the `Dockerfile` auto-reloads the server on code changes which makes testing easier. Remove flag in production.
 
 # Receipt Processor
