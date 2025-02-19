@@ -28,4 +28,14 @@ def create_receipt_id(receipt: Receipt):
 
 @app.get("/receipts/{id}/points")
 def get_receipt_points(id: str):
-   return {"points": 32}
+    print("*******receipts list", receipts)
+    points = 0
+    for receipt in receipts:
+        if receipt.id == id:
+            name = []
+            for char in receipt.retailer:
+                if char.isalnum():
+                    name.append(char)
+            points += len(name)
+            return {"points": points}
+    return {"error": "receipt not found"}
