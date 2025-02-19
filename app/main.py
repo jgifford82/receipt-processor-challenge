@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import uuid
 from typing import Optional
+import math
 
 app = FastAPI()
 
@@ -53,6 +54,15 @@ def get_receipt_points(id: str):
                 else:
                     odd_count = int((len(receipt.items) - 1) / 2 * 5)
                     points += odd_count
+            
+            for item in receipt.items:
+                trimmed_description = len(item.shortDescription.strip())
+                if trimmed_description % 3 == 0:
+                    price = float(item.price)
+                    price_calculation = price * 0.2
+                    round_up = math.ceil(price_calculation)
+                    points += round_up
+
+
             return {"points": points}
     return {"error": "receipt not found"}
-
