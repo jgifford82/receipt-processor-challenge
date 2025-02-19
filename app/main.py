@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+import uuid
 
 app = FastAPI()
 
@@ -15,11 +16,8 @@ class Receipt(BaseModel):
     total: str
     items: list[Item]
 
-
-# @app.get("/")
-# def root():
-#     return {"message": "Hello World"}
-
 @app.post("/receipts/process")
 def root(receipt: Receipt):
-    return {"message": "receipts/process"}
+    print(receipt)
+    id_generator = uuid.uuid4()
+    return {"id": id_generator}
