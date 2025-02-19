@@ -76,5 +76,10 @@ def get_receipt_points(id: str):
             if day % 2 != 0:
                 points += 6
             
-            return {"points": points}
+            # 10 points if the time of purchase is after 2:00pm and before 4:00pm.
+            time = float(receipt.purchaseTime.replace(":", "."))
+            if time > 14.00 and time < 16.00:
+                points += 10
+
+            return {"points": points, "TIME": time}
     return {"error": "receipt not found"}
