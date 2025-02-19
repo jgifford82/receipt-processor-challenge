@@ -21,13 +21,11 @@ class Receipt(BaseModel):
 
 @app.post("/receipts/process")
 def create_receipt_id(receipt: Receipt):
-    #print(receipt)
     id_generator = uuid.uuid4()
-    receipt.id = id_generator
+    receipt.id = str(id_generator)
     receipts.append(receipt)
-    print(receipts)
     return {"id": receipts[-1].id}
 
 @app.get("/receipts/{id}/points")
 def get_receipt_points(id: str):
-    return {"points": 32}
+   return {"points": 32}
