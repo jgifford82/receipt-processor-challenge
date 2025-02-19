@@ -37,7 +37,6 @@ def get_receipt_points(id: str):
             for char in receipt.retailer:
                 if char.isalnum():
                     name.append(char)
-
             points += len(name)
 
             total = float(receipt.total)
@@ -47,5 +46,13 @@ def get_receipt_points(id: str):
             if total % 0.25 == 0:
                 points += 25
 
+            if len(receipt.items) > 1:
+                if len(receipt.items) % 2 == 0:
+                    even_count = int(len(receipt.items) / 2 * 5)
+                    points += even_count
+                else:
+                    odd_count = int((len(receipt.items) - 1) / 2 * 5)
+                    points += odd_count
             return {"points": points}
     return {"error": "receipt not found"}
+
