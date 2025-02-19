@@ -4,8 +4,11 @@ import uuid
 from typing import Optional
 import math
 
+#Note: See README Project Notes section for explanations of thought processes. I wouldn't normally have a comment about that here, but I didn't want it to get lost in the README.
+
 app = FastAPI()
 
+#Storing receipts here in lieu of a database.
 receipts = []
 
 class Item(BaseModel):

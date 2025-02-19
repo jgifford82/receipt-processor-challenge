@@ -1,3 +1,36 @@
+# Setup
+
+* Download and install Docker if needed. See [documentation](https://www.docker.com/products/docker-desktop/).
+
+* Install Python 3.8.13 or above if needed. See [documentation](https://www.python.org/downloads/).   
+  - Run this to check if Python installed and if it's the right version:
+  ```python --version```
+
+* Setup Python virtual environment. See [guide](https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/). 
+
+* Install FastAPI if needed. See [documentation](https://fastapi.tiangolo.com/tutorial/#install-fastapi) for more help.
+Run the following commands in the terminal:
+  ```
+  pip install fastapi 
+  pip install --upgrade pip 
+  pip install uvicorn
+  ```
+
+* Build Image & Run Server in Docker by running the following commands in the terminal:
+  ```
+  docker build -t receipt-processor-challenge .
+  docker run -d --name mycontainer -p 80:80 receipt-processor-challenge
+  ```
+
+# Project Notes
+* **Testing:** I used Postman to test these endpoints. I didn't write up test files since the README seemed to indicate that an engineer would run this against an automated test suite.
+
+* **Tech:** I used Python and FastAPI since they are familiar to me, having used them at my recent job. This is also set up to run with Docker per the requirements.
+
+* **Models:** In a bigger program, it'd likely make more sense to separate out the models from `main.py` into another file to have separation of concerns. Keeping them in `main.py` makes sense since it's a small app.
+
+* **Logic:** There is a lot of logic contained in the `/receipts/{id}/points` endpoint in `main.py`. It might be better to separate it out into smaller functions in a separate file for readability and maintainability. I'm keeping it here for now since it's a small app and the logic is only used in this endpoint.
+
 # Receipt Processor
 
 Build a webservice that fulfils the documented API. The API is described below. A formal definition is provided 
