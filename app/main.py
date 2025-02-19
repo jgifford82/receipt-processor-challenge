@@ -4,7 +4,7 @@ import uuid
 from typing import Optional
 import math
 
-#Note: See README Project Notes section for explanations of thought processes. I wouldn't normally have a comment about that here, but I didn't want it to get lost in the README.
+#Note: See README for Setup, and Project Notes section for explanations of thought processes. I wouldn't normally have a comment about that here, but I didn't want it to get lost in the README.
 
 app = FastAPI()
 

@@ -1,7 +1,5 @@
 # Setup
 
-* Download and install Docker if needed. See [documentation](https://www.docker.com/products/docker-desktop/).
-
 * Install Python 3.8.13 or above if needed. See [documentation](https://www.python.org/downloads/).   
   - Run this to check if Python installed and if it's the right version:
   ```python --version```
@@ -30,6 +28,8 @@ Run the following commands in the terminal:
 * **Models:** In a bigger program, it'd likely make more sense to separate out the models from `main.py` into another file to have separation of concerns. Keeping them in `main.py` makes sense since it's a small app.
 
 * **Logic:** There is a lot of logic contained in the `/receipts/{id}/points` endpoint in `main.py`. It might be better to separate it out into smaller functions in a separate file for readability and maintainability. I'm keeping it here for now since it's a small app and the logic is only used in this endpoint.
+
+* **Server Reload** The "--reload" flag in the CMD list of the `Dockerfile` auto-reloads the server on code changes which makes testing easier. Remove flag in production.
 
 # Receipt Processor
 
